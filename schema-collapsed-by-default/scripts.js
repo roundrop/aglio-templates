@@ -57,12 +57,13 @@ function toggleCollapseButton(event) {
         // Currently showing, so let's hide it
         button.className = 'collapse-button';
         content.style.maxHeight = '0px';
-        content.style.overflow = 'hidden';
     } else {
         // Currently hidden, so let's show it
         button.className = 'collapse-button show';
-        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
-        content.style.overflow = 'initial';
+        var h = inner.offsetHeight + 12;
+        content.style.maxHeight = h + 'px';
+        var parentCollapseContentElement = content.parentNode.parentElement;
+        parentCollapseContentElement.style.maxHeight = parentCollapseContentElement.offsetHeight + h + 'px';
     }
 }
 
